@@ -159,7 +159,7 @@ my_ulonglong log_error(
 	} else {
 		fmt = (char *)initid->ptr;
 		memcpy(fmt, "%0.", 3);
-		sprintf(fmt+3, "%d", args->lengths[0]<=9999? args->lengths[0]: 9999);
+		sprintf(fmt+3, "%ld", args->lengths[0]<=9999? args->lengths[0]: 9999);
 		numDigits = strlen(fmt + 4);
 		memcpy(fmt + 4 + numDigits, "s\n\0", 3);
 		fprintf(stderr, fmt, args->args[0]);
